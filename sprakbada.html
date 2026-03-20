@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Språkbada — Extra resurser för din spanska</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sun: #F7B731;
+    --sun-light: #FFF3D4;
+    --coral: #E8634A;
+    --coral-soft: #FDEAE6;
+    --ocean: #2D6A7A;
+    --ocean-deep: #1B4350;
+    --sand: #FAF5EE;
+    --sand-warm: #F3EBD8;
+    --ink: #2C2417;
+    --ink-light: #6B5D4F;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--sand);
+    color: var(--ink);
+    line-height: 1.7;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  .hero {
+    background: linear-gradient(160deg, var(--ocean-deep) 0%, var(--ocean) 50%, #3A8A7A 100%);
+    padding: 4rem 2rem 3.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60%;
+    right: -20%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(247,183,49,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(232,99,74,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-label {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--sun-light);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: var(--white);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 span {
+    color: var(--sun);
+  }
+
+  .hero p {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.1rem;
+    max-width: 520px;
+    margin: 1rem auto 0;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+  }
+
+  .wave {
+    display: block;
+    width: 100%;
+    margin-top: -2px;
+    line-height: 0;
+  }
+  .wave svg {
+    width: 100%;
+    height: 40px;
+    display: block;
+  }
+
+  .intro {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 1rem;
+    text-align: center;
+  }
+
+  .intro p {
+    font-size: 1.05rem;
+    color: var(--ink-light);
+    line-height: 1.8;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 2rem 3rem;
+  }
+
+  .section {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2rem 2.2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 20px rgba(44,36,23,0.05);
+    border: 1px solid rgba(44,36,23,0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(44,36,23,0.08);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .section-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .icon-radio { background: linear-gradient(135deg, var(--coral-soft), #FDD8D0); }
+  .icon-podcast { background: linear-gradient(135deg, var(--sun-light), #FFE8A8); }
+  .icon-music { background: linear-gradient(135deg, #E3F0E8, #C8E6CF); }
+  .icon-tv { background: linear-gradient(135deg, #E5EDF5, #C8D8EB); }
+
+  .section-header h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .section p {
+    color: var(--ink-light);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    background: var(--sand);
+    margin-bottom: 0.6rem;
+    text-decoration: none;
+    color: var(--ink);
+    transition: all 0.25s ease;
+    border: 1px solid transparent;
+  }
+
+  .link-card:hover {
+    background: var(--sun-light);
+    border-color: rgba(247,183,49,0.25);
+    transform: translateX(4px);
+  }
+
+  .link-card .arrow {
+    margin-left: auto;
+    color: var(--ink-light);
+    transition: transform 0.25s ease, color 0.25s ease;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .link-card:hover .arrow {
+    transform: translateX(3px);
+    color: var(--coral);
+  }
+
+  .link-card .link-name {
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .link-card .link-desc {
+    font-size: 0.8rem;
+    color: var(--ink-light);
+    margin-top: 0.1rem;
+  }
+
+  .link-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dot-coral { background: var(--coral); }
+  .dot-sun { background: var(--sun); }
+  .dot-ocean { background: var(--ocean); }
+  .dot-green { background: #5DAA68; }
+
+  .tip-banner {
+    background: linear-gradient(135deg, var(--sun-light) 0%, #FFF8EC 100%);
+    border-radius: 20px;
+    padding: 2rem 2.2rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(247,183,49,0.2);
+    text-align: center;
+  }
+
+  .tip-banner .tip-emoji {
+    font-size: 2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .tip-banner p {
+    color: var(--ink);
+    font-size: 1rem;
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .tip-banner p strong {
+    color: var(--ocean-deep);
+    font-weight: 600;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 1.5rem 2rem 3rem;
+    color: var(--ink-light);
+    font-size: 0.85rem;
+  }
+
+  .footer span {
+    color: var(--coral);
+  }
+
+  @media (max-width: 600px) {
+    .section { padding: 1.5rem 1.4rem; }
+    .hero { padding: 3rem 1.5rem 2.5rem; }
+  }
+
+  @media print {
+    body { background: white; }
+    .section { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+    .section:hover { transform: none; }
+    .link-card:hover { transform: none; }
+    .hero { background: var(--ocean-deep) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-label">Extra resurser</div>
+  <h1>Språk<span>bada</span></h1>
+  <p>Tips och resurser för att omge dig med spanska — varje dag, utan att det känns som plugg.</p>
+</div>
+<div class="wave">
+  <svg viewBox="0 0 1440 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#FAF5EE" d="M0,0 C360,40 1080,40 1440,0 L1440,40 L0,40 Z"/>
+  </svg>
+</div>
+
+<div class="intro">
+  <p>Vill du förbättra din spanska lite varje dag? Här kommer några efterfrågade tips på resurser du kan använda för att göra spanskan till en del av vardagen — på ett roligt sätt!</p>
+</div>
+
+<div class="container">
+
+  <!-- RADIO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-radio">📻</div>
+      <h2>Streama radio</h2>
+    </div>
+    <p>Klicka dig runt på en världskarta och lyssna på radiostationer från olika länder. Välj en plats i Spanien eller Latinamerika — perfekt för att höra språket i verkliga sammanhang!</p>
+    <a class="link-card" href="https://radio.garden/" target="_blank" rel="noopener">
+      <span class="link-dot dot-coral"></span>
+      <div>
+        <div class="link-name">Radio Garden</div>
+        <div class="link-desc">Gratis app &amp; webbplats — utforska radio från hela världen</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <!-- PODCASTS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-podcast">🎧</div>
+      <h2>Podcasts</h2>
+    </div>
+    <p>Finns gratis på t.ex. Spotify, Apple Podcasts eller YouTube. Välj utifrån nivå och intresse:</p>
+
+    <a class="link-card" href="https://open.spotify.com/show/4WYj81C37trSAv42zwnipj?si=4757bdffd9054385" target="_blank" rel="noopener">
+      <span class="link-dot dot-sun"></span>
+      <div>
+        <div class="link-name">Coffee Break Spanish</div>
+        <div class="link-desc">Spotify — perfekt för nybörjare</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="link-card" href="https://www.hoyhablamos.com/category/podcasts-aprender-espanol/" target="_blank" rel="noopener">
+      <span class="link-dot dot-sun"></span>
+      <div>
+        <div class="link-name">Hoy Hablamos</div>
+        <div class="link-desc">Dagliga avsnitt för att öva hörförståelse</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="link-card" href="https://www.youtube.com/channel/UCECJDeK0MNapZbpaOzxrUPA" target="_blank" rel="noopener">
+      <span class="link-dot dot-sun"></span>
+      <div>
+        <div class="link-name">Luisito Comunica</div>
+        <div class="link-desc">YouTube — resor och kultur på spanska</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="link-card" href="https://podcast.duolingo.com/spanish" target="_blank" rel="noopener">
+      <span class="link-dot dot-sun"></span>
+      <div>
+        <div class="link-name">Duolingo Spanish Podcast</div>
+        <div class="link-desc">Verkliga berättelser med blandad engelska &amp; spanska</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="link-card" href="https://www.notesinspanish.com/spanish-audio/" target="_blank" rel="noopener">
+      <span class="link-dot dot-sun"></span>
+      <div>
+        <div class="link-name">Notes in Spanish</div>
+        <div class="link-desc">Naturliga samtal på flera nivåer</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="link-card" href="https://www.nohaytospodcast.com/" target="_blank" rel="noopener">
+      <span class="link-dot dot-sun"></span>
+      <div>
+        <div class="link-name">No Hay Tos Podcast</div>
+        <div class="link-desc">Mexikansk spanska — slang och vardagsspråk</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="link-card" href="https://1001reasonstolearnspanish.com/podcasts/" target="_blank" rel="noopener">
+      <span class="link-dot dot-sun"></span>
+      <div>
+        <div class="link-name">Español con Juan</div>
+        <div class="link-desc">Naturlig spanska med humor</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="link-card" href="https://www.howtospanishpodcast.com/list-of-episodes" target="_blank" rel="noopener">
+      <span class="link-dot dot-sun"></span>
+      <div>
+        <div class="link-name">How to Spanish Podcast</div>
+        <div class="link-desc">Grammatik och uttal steg för steg</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="link-card" href="https://robodelsiglopodcast.com/" target="_blank" rel="noopener">
+      <span class="link-dot dot-sun"></span>
+      <div>
+        <div class="link-name">Robo del Siglo</div>
+        <div class="link-desc">True crime-podcast på spanska</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="link-card" href="https://www.secondhalftravels.com/best-spanish-podcasts/" target="_blank" rel="noopener">
+      <span class="link-dot dot-sun"></span>
+      <div>
+        <div class="link-name">Más ejemplos</div>
+        <div class="link-desc">Stor lista med fler podcast-tips</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <!-- MUSIK -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-music">🎵</div>
+      <h2>Musik</h2>
+    </div>
+    <p>Lägg till lite musik på spanska i din spellista! Kolla in vår Spotify-lista för inspiration:</p>
+    <a class="link-card" href="https://open.spotify.com/playlist/3ps0WRJaf8E6IAp6YfnBuS?si=VnrUw-wyS6eWLjB53dMttQ" target="_blank" rel="noopener">
+      <span class="link-dot dot-green"></span>
+      <div>
+        <div class="link-name">Hermods Club de Español</div>
+        <div class="link-desc">Spotify-spellista — upptäck musik på spanska</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <!-- FILM & TV -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-tv">🎬</div>
+      <h2>Film &amp; TV</h2>
+    </div>
+    <p>På Netflix och andra streamingtjänster finns massor av serier och filmer på spanska. Sätt på spansk undertext eller ljud — eller båda!</p>
+    <a class="link-card" href="https://www.rtve.es/play/series/?order=1&criteria=asc&emissionFilter=all" target="_blank" rel="noopener">
+      <span class="link-dot dot-ocean"></span>
+      <div>
+        <div class="link-name">RTVE — Radio y Televisión Española</div>
+        <div class="link-desc">Gratis spanska serier, dokumentärer &amp; nyheter</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="link-card" href="https://www.arte.tv/es/" target="_blank" rel="noopener">
+      <span class="link-dot dot-green"></span>
+      <div>
+        <div class="link-name">Arte.tv</div>
+        <div class="link-desc">Gratis dokumentärer &amp; kultur på flera språk</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <!-- TIP BANNER -->
+  <div class="tip-banner">
+    <div class="tip-emoji">💡</div>
+    <p>Du behöver inte förstå allt! Det viktigaste är att <strong>lyssna, vänja örat vid språket</strong> och göra spanskan till en del av vardagen. <strong>Lite varje dag gör stor skillnad!</strong></p>
+  </div>
+
+  <!-- CTA -->
+  <div class="section" style="text-align:center; background: linear-gradient(135deg, var(--ocean-deep), var(--ocean)); color: white; border: none;">
+    <p style="color: rgba(255,255,255,0.85); margin-bottom: 0.3rem;">Har du egna tips på bra resurser?</p>
+    <p style="font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: white; margin-bottom: 0;">Dela gärna med dig! Meddela din kurslärare<br>så kan vi uppdatera listan tillsammans. 🤝</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  Hermods — Spanska <span>♥</span>
+</div>
+
+</body>
+</html>
